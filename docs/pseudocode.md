@@ -1,6 +1,6 @@
 # Pseudocode: Sales Analysis
 
-START Program
+START
 
     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     salesChange = [12, -8, 15, 18, -22, 10, 14, -5, 20, 8, -25, 6]
@@ -33,4 +33,4 @@ START Program
     PRINT "Starting Month: " + months[bestStartIdx]
     PRINT "Ending Month: " + months[bestEndIdx]
 
-END Program
+END
