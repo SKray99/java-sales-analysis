@@ -1,6 +1,6 @@
 # Pseudocode: Sales Analysis
 
-START
+START Program
 
 
     // 1. Set up the lists from the data.
@@ -43,4 +43,4 @@ START
     PRINT "Starting Month: " + months[bestStartIdx]
     PRINT "Ending Month: " + months[bestEndIdx]
 
-END
+END Program
