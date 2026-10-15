@@ -1,6 +1,7 @@
 public class SalesAnalysis {
 
     public static void main(String[] args) {
+
         String[] months = {
                 "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -11,10 +12,13 @@ public class SalesAnalysis {
                 14, -5, 20, 8, -25, 6
         };
 
-        int[] bestPeriodIndices = findBestSalesPeriod(salesChange);
-        double maxSalesChange = calculatePeriodTotal(salesChange, bestPeriodIndices[0], bestPeriodIndices[1]);
+        int[] bestPositions = findBestSalesPeriod(salesChange);
+        int bestStartIdx = bestPositions[0];
+        int bestEndIdx = bestPositions[1];
 
-        printReport(months, bestPeriodIndices[0], bestPeriodIndices[1], maxSalesChange);
+        double maxSales = calculatePeriodTotal(salesChange, bestStartIdx, bestEndIdx);
+
+        printReport(months, bestStartIdx, bestEndIdx, maxSales);
     }
 
     public static int[] findBestSalesPeriod(double[] salesChange) {
@@ -24,10 +28,10 @@ public class SalesAnalysis {
 
         for (int start = 0; start < salesChange.length; start++) {
             double currentSum = 0;
-
+            
             for (int end = start; end < salesChange.length; end++) {
                 currentSum += salesChange[end];
-
+                
                 if (currentSum > maxCombinedSales) {
                     maxCombinedSales = currentSum;
                     bestStartIdx = start;
@@ -51,7 +55,7 @@ public class SalesAnalysis {
         System.out.println("--------------------");
         System.out.println("Start Month: " + months[startIdx]);
         System.out.println("End Month: " + months[endIdx]);
-
+        
         if (totalChange == (long) totalChange) {
             System.out.println("Total Sales Change: " + (long) totalChange + " million");
         } else {
